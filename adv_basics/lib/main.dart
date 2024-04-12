@@ -10,7 +10,7 @@ void main() {
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                Color.fromARGB(255, 219, 215, 224),
+                Color.fromARGB(255, 46, 4, 96),
                 Color.fromARGB(255, 130, 57, 255),
               ],
               begin:Alignment.topLeft,
