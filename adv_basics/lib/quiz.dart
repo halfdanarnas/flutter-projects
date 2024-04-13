@@ -25,6 +25,12 @@ var activeScreen = 'start-screen';
 
   @override
   Widget build(context) {
+    Widget screenWidget =  StartScreen(switchScreen);
+
+    if (activeScreen == 'questions-screen') {
+      screenWidget = const QuestionsScreen();
+    }      
+        
     return
     MaterialApp(
       home: Scaffold(
@@ -39,9 +45,7 @@ var activeScreen = 'start-screen';
               end: Alignment.bottomRight
             ),
             ),
-          child: activeScreen == 'start-screen' 
-          ? StartScreen(switchScreen) 
-          : const QuestionsScreen(),
+          child: screenWidget,
           ),
       ),
     );
