@@ -27,7 +27,7 @@ return Center(
     const Text(
       'Learn Flutter the fun way!', 
       style: TextStyle(
-        color: Color.fromARGB(150, 162, 136, 185),
+        color: Color.fromARGB(153, 171, 97, 119),
         fontSize: 24
     ),
     ),
