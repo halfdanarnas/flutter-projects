@@ -1,0 +1,48 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "adv_basics",
+            "cwd": "adv_basics",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "adv_basics (profile mode)",
+            "cwd": "adv_basics",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "adv_basics (release mode)",
+            "cwd": "adv_basics",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "rolldice",
+            "cwd": "rolldice",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "rolldice (profile mode)",
+            "cwd": "rolldice",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "rolldice (release mode)",
+            "cwd": "rolldice",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
