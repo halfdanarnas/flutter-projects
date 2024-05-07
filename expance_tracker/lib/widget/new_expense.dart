@@ -19,6 +19,7 @@ class _NewExpenseState extends State<NewExpense> {
  final _titleController = TextEditingController();
 final _amountController = TextEditingController();
  DateTime? _selectDate;
+Category _selectedCategory = Category.leisure;
 
 void _presentDatePicker () async {
   final now = DateTime.now();
@@ -32,6 +33,17 @@ void _presentDatePicker () async {
     setState(() {
       _selectDate = pickedDate;
     });
+}
+
+void _submitExpenseData() {
+  final enteredAmound = double.tryParse(_amountController.text);
+  final amountIsInvalid = enteredAmound == null || enteredAmound <= 0;
+  if (_titleController.text.trim().isEmpty || 
+  amountIsInvalid || 
+  _selectDate == null){
+    
+
+  }
 }
 
  @override
@@ -87,8 +99,31 @@ void _presentDatePicker () async {
           ),
             ],
           ),
+          const SizedBox(height: 16),
           Row(
             children: [
+              DropdownButton(
+                value: _selectedCategory,
+                items: Category.values
+                .map(
+                  (category) => DropdownMenuItem(
+                    value: category,
+                    child: Text(
+                      category.name.toUpperCase(),
+                    ),
+                    ),
+                  )
+                  .toList(),
+                   onChanged: (value) {
+                    if (value == null) {
+                        return;
+                      }
+                    setState(() {
+                      _selectedCategory = value;
+                    });
+                   },
+                   ),
+                   const Spacer(),
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);
@@ -96,11 +131,7 @@ void _presentDatePicker () async {
               child: const Text('Cancel'),
               ),
             ElevatedButton(
-              onPressed: () {
-                print(_titleController.text);
-                print(_amountController.text);
-
-              },
+              onPressed: _submitExpenseData,
                child: const Text('Save Expense'),
             ),
           ],
