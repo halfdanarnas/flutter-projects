@@ -2,19 +2,19 @@ import 'package:adv_basics/models/quiz_question.dart';
 
 const questions = [
   QuizQuestion(
-    'What are the main building blocks of Flutter UIs?',
+    'Veldu rétt tónbil. 5und',
     [
-      'Widgets',
-      'Components',
-      'Blocks',
-      'Functions',
+      'hrein 5und',
+      'stór 3und',
+      'lítil 3und',
+      'hrein 4und',
     ],
   ),
-  QuizQuestion('How are Flutter UIs built?', [
-    'By combining widgets in code',
-    'By combining widgets in a visual editor',
-    'By defining widgets in config files',
-    'By using XCode for iOS and Android Studio for Android',
+  QuizQuestion('Hvaða tónbil er þetta? 8und', [
+    'hrein 8und',
+    'hrein 5und',
+    'stór 6und',
+    'lítil 6und',
   ]),
   QuizQuestion(
     'What\'s the purpose of a StatefulWidget?',
