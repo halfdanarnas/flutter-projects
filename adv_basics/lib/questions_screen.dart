@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:adv_basics/answer_button.dart';
 import 'package:adv_basics/data/questions.dart';
-
+import 'package:audioplayers/audioplayers.dart';
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({
     super.key,

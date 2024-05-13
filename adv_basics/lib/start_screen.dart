@@ -12,11 +12,21 @@ class StartScreen extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Image.asset(
-            'assets/images/quiz-logo.png',
-            width: 300,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 60.0),
+                  child: Image.asset(
+            'assets/images/pngegg.png',
+            width: 350,
             color: const Color.fromARGB(150, 255, 255, 255),
+            
+                  ),
+              ),
+            ],
           ),
+      
           // Opacity(
           //   opacity: 0.6,
           //   child: Image.asset(

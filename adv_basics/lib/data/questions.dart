@@ -10,7 +10,7 @@ const questions = [
       'hrein 4und',
     ],
   ),
-  QuizQuestion('Hvaða tónbil er þetta? 8und', [
+  QuizQuestion('Hvaða tónbil er þetta?', [
     'hrein 8und',
     'hrein 5und',
     'stór 6und',
