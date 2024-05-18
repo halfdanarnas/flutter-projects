@@ -41,12 +41,12 @@ class SummaryItem extends StatelessWidget {
                   height: 5,
                 ),
                 Text(itemData['user_answer'] as String,
-                    style: const TextStyle(
-                      color: Color.fromARGB(255, 202, 171, 252),
+                    style: GoogleFonts.abrilFatface(
+                      color: const Color.fromARGB(255, 183, 147, 243),
                     )),
                 Text(itemData['correct_answer'] as String,
-                    style: const TextStyle(
-                      color: Color.fromARGB(255, 181, 254, 246),
+                    style: GoogleFonts.abrilFatface(
+                      color: const Color.fromARGB(255, 140, 186, 141),
                     )),
               ],
             ),

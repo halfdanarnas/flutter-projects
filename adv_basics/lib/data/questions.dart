@@ -2,13 +2,14 @@ import 'package:adv_basics/models/quiz_question.dart';
 
 const questions = [
   QuizQuestion(
-    'Veldu rétt tónbil. 5und',
+    'Hvaða tónbil er þetta?',
     [
       'hrein 5und',
       'stór 3und',
       'lítil 3und',
       'hrein 4und',
     ],
+    audioFilePath: 'assets/audio/test-sound.mp3'
   ),
   QuizQuestion('Hvaða tónbil er þetta?', [
     'hrein 8und',
@@ -17,39 +18,39 @@ const questions = [
     'lítil 6und',
   ]),
   QuizQuestion(
-    'What\'s the purpose of a StatefulWidget?',
+    'Hvaða tónbil er þetta?',
     [
-      'Update UI as data changes',
-      'Update data as UI changes',
-      'Ignore data changes',
-      'Render UI that does not depend on data',
+      'lítil 3und',
+      'lítil 2und',
+      'stækkuð 4und/minnkuð 5und(tónskratti)',
+      'lítil 7und',
     ],
   ),
   QuizQuestion(
-    'Which widget should you try to use more often: StatelessWidget or StatefulWidget?',
+    'Hvaða tónbil er þetta?',
     [
-      'StatelessWidget',
-      'StatefulWidget',
-      'Both are equally good',
-      'None of the above',
+      'hrein 8und',
+      'stór 3und',
+      'stór 2und',
+      'stór 6und',
     ],
   ),
   QuizQuestion(
-    'What happens if you change data in a StatelessWidget?',
+    'Hvaða tónbil er þetta?',
     [
-      'The UI is not updated',
-      'The UI is updated',
-      'The closest StatefulWidget is updated',
-      'Any nested StatefulWidgets are updated',
+      'hrein 5und',
+      'stór 6und',
+      'hrein 4und',
+      'stór 7und',
     ],
   ),
   QuizQuestion(
-    'How should you update data inside of StatefulWidgets?',
+    'Hvaða tónbil er þetta?',
     [
-      'By calling setState()',
-      'By calling updateData()',
-      'By calling updateUI()',
-      'By calling updateState()',
+      'stækkuð 4und/minnkuð 5und(tónskratti)',
+      'stór 2und',
+      'lítil 2und',
+      'lítil 7und',
     ],
   ),
 ];

@@ -16,11 +16,11 @@ class StartScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Padding(
-                padding: const EdgeInsets.only(right: 60.0),
+                padding: const EdgeInsets.only(right: 400.0),
                   child: Image.asset(
             'assets/images/pngegg.png',
             width: 350,
-            color: const Color.fromARGB(150, 255, 255, 255),
+            color: const Color.fromARGB(192, 255, 255, 255),
             
                   ),
               ),

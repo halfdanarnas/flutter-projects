@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'package:adv_basics/answer_button.dart';
 import 'package:adv_basics/data/questions.dart';
 import 'package:audioplayers/audioplayers.dart';
+
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({
     super.key,
@@ -20,14 +20,41 @@ class QuestionsScreen extends StatefulWidget {
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
   var currentQuestionIndex = 0;
+  late AudioPlayer _audioPlayer;
+
+  @override
+  void initState() {
+    super.initState();
+    _audioPlayer = AudioPlayer();
+  }
+
+  @override
+  void dispose() {
+    _audioPlayer.dispose();
+    super.dispose();
+  }
 
   void answerQuestion(String selectedAnswer) {
     widget.onSelectAnswer(selectedAnswer);
-    // currentQuestionIndex = currentQuestionIndex + 1;
-    // currentQuestionIndex += 1;
     setState(() {
-      currentQuestionIndex++; // increments the value by 1
+      currentQuestionIndex++;
     });
+
+    // Play audio for the next question
+    if (currentQuestionIndex < questions.length) {
+      final nextQuestion = questions[currentQuestionIndex];
+      if (nextQuestion.audioFilePath != null) {
+        _playAudio(nextQuestion.audioFilePath!);
+      }
+    }
+  }
+
+  Future<void> _playAudio(String filePath) async {
+    try {
+      await _audioPlayer.play(filePath, isLocal: true);
+    } catch (e) {
+      print('Error playing audio: $e');
+    }
   }
 
   @override
