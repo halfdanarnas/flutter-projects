@@ -37,8 +37,8 @@ class StartScreen extends StatelessWidget {
           const SizedBox(height: 80),
           Text(
             'Lærum tónbil!',
-            style: GoogleFonts.lato(
-              color: const Color.fromARGB(255, 237, 223, 252),
+            style: GoogleFonts.abrilFatface(
+              color: const Color.fromARGB(255, 255, 255, 255),
               fontSize: 24,
             ),
           ),
@@ -46,7 +46,7 @@ class StartScreen extends StatelessWidget {
           OutlinedButton.icon(
             onPressed: startQuiz,
             style: OutlinedButton.styleFrom(
-              foregroundColor: Colors.white,
+              foregroundColor: const Color.fromARGB(255, 255, 255, 255),
             ),
             icon: const Icon(Icons.arrow_right_alt),
             label: const Text('Byrja'),
