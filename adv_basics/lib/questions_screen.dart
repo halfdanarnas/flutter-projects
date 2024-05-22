@@ -4,8 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:adv_basics/answer_button.dart';
 import 'package:adv_basics/data/questions.dart';
 import 'package:audioplayers/audioplayers.dart';
-import 'package:audioplayers_web/audioplayers_web.dart' if (dart.library.html) 'package:audioplayers/audioplayers.dart';
+import 'package:audioplayers_web/audioplayers_web.dart';
 import 'dart:ffi';
+
+
 
 
 class QuestionsScreen extends StatefulWidget {
