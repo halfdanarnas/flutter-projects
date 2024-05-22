@@ -3,13 +3,8 @@ import 'package:adv_basics/models/quiz_question.dart';
 const questions = [
   QuizQuestion(
     'Hvaða tónbil er þetta?',
-    [
-      'hrein 5und',
-      'stór 3und',
-      'lítil 3und',
-      'hrein 4und',
-    ],
-    audioFilePath: 'assets/audio/test-sound.mp3'
+    ['Perfect fifth', 'Perfect fourth', 'Minor second', 'Major second'],
+    audioFilePath: 'assets/audio/test_sound.mp3',
   ),
   QuizQuestion('Hvaða tónbil er þetta?', [
     'hrein 8und',

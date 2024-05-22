@@ -1,8 +1,12 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:adv_basics/answer_button.dart';
 import 'package:adv_basics/data/questions.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:audioplayers_web/audioplayers_web.dart' if (dart.library.html) 'package:audioplayers/audioplayers.dart';
+import 'dart:ffi';
+
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({
@@ -26,6 +30,11 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   void initState() {
     super.initState();
     _audioPlayer = AudioPlayer();
+
+    // Use a post frame callback to play audio after the first frame is rendered
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _playAudio(questions[currentQuestionIndex].audioFilePath);
+    });
   }
 
   @override
@@ -40,25 +49,27 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
       currentQuestionIndex++;
     });
 
-    // Play audio for the next question
+    // Play audio for the next question if available
     if (currentQuestionIndex < questions.length) {
-      final nextQuestion = questions[currentQuestionIndex];
-      if (nextQuestion.audioFilePath != null) {
-        _playAudio(nextQuestion.audioFilePath!);
-      }
+      _playAudio(questions[currentQuestionIndex].audioFilePath);
     }
   }
 
-  Future<void> _playAudio(String filePath) async {
-    try {
-      await _audioPlayer.play(filePath, isLocal: true);
-    } catch (e) {
-      print('Error playing audio: $e');
-    }
+Future<void> _playAudio(String? filePath) async {
+  if (filePath == null) return;
+  try {
+    AudioCache audioCache = AudioCache(prefix: 'assets/audio/');
+    audioCache.play(filePath);
+  } catch (e) {
+    print('Error playing audio: $e');
   }
+}
+
+
+
 
   @override
-  Widget build(context) {
+  Widget build(BuildContext context) {
     final currentQuestion = questions[currentQuestionIndex];
 
     return SizedBox(
@@ -86,7 +97,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                   answerQuestion(answer);
                 },
               );
-            })
+            }).toList(),
           ],
         ),
       ),
