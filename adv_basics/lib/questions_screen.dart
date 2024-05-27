@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:adv_basics/answer_button.dart';
 import 'package:adv_basics/data/questions.dart';
 import 'package:audioplayers/audioplayers.dart';
-//import 'package:audioplayers_web/audioplayers_web.dart';
+// import 'package:audioplayers_web/audioplayers_web.dart';
 
 
 
@@ -60,8 +60,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
 Future<void> _playAudio(String? filePath) async {
   if (filePath == null) return;
   try {
-    AudioCache audioCache = AudioCache(prefix: 'assets/audio/');
-    audioCache.play(filePath);
+    await _audioPlayer.play(AssetSource('audio/$filePath')); 
   } catch (e) {
     print('Error playing audio: $e');
   }

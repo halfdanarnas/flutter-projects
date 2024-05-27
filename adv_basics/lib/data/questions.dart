@@ -4,14 +4,15 @@ const questions = [
   QuizQuestion(
     'Hvaða tónbil er þetta?',
     ['Perfect fifth', 'Perfect fourth', 'Minor second', 'Major second'],
-    audioFilePath: 'assets/audio/test_sound.mp3',
+    // audioFilePath: 'assets/audio/test-sound.mp3',
+    audioFilePath: 'test-sound.mp3',
   ),
   QuizQuestion('Hvaða tónbil er þetta?', [
     'hrein 8und',
     'hrein 5und',
     'stór 6und',
     'lítil 6und',
-  ]),
+  ], audioFilePath: 'test-sound2.mp3'),
   QuizQuestion(
     'Hvaða tónbil er þetta?',
     [
