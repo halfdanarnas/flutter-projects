@@ -28,6 +28,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   var currentQuestionIndex = 0;
   late AudioPlayer _audioPlayer;
 
+
   @override
   void initState() {
     super.initState();
@@ -72,8 +73,7 @@ Future<void> _playAudio(String? filePath) async {
   @override
   Widget build(BuildContext context) {
     final currentQuestion = questions[currentQuestionIndex];
-
-    return SizedBox(
+ return SizedBox(
       width: double.infinity,
       child: Container(
         margin: const EdgeInsets.all(40),
@@ -81,6 +81,38 @@ Future<void> _playAudio(String? filePath) async {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            if (currentQuestionIndex == 2) ...[
+              ElevatedButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        content: Text(
+                          'Star Wars lagið inniheldur hreina 5und. Gott getur verið að þekkja tónbil á lögum sem maður þekkir til að læra tónbil',
+                          style: GoogleFonts.lato(
+                            color: const Color.fromARGB(255, 0, 0, 0),
+                            fontSize: 18,
+                            fontWeight: FontWeight.normal,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: const Text('Fara til baka',),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+                child: const Text('Fróðleiksmoli'), // Change button text here
+              ),
+              const SizedBox(height: 30),
+            ],
             Text(
               currentQuestion.text,
               style: GoogleFonts.lato(
