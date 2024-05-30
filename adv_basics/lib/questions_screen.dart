@@ -90,7 +90,7 @@ Future<void> _playAudio(String? filePath) async {
                       return AlertDialog(
                         content: Text( 
                           currentQuestionIndex == 2
-                              ? 'Star Wars lagið inniheldur hreina 5und. Gott getur verið að þekkja tónbil á lögum sem maður þekkir til að læra tónbil'
+                              ? 'Star Wars lagið inniheldur hreina 5und. Það er gott að heyra tónbil á lögum sem maður þekkir vel'
                               : 'Jaws lagið inniheldur litla 2und',
                           style: GoogleFonts.lato(
                             color: const Color.fromARGB(255, 0, 0, 0),
