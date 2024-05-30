@@ -73,7 +73,7 @@ Future<void> _playAudio(String? filePath) async {
   @override
   Widget build(BuildContext context) {
     final currentQuestion = questions[currentQuestionIndex];
- return SizedBox(
+  return SizedBox(
       width: double.infinity,
       child: Container(
         margin: const EdgeInsets.all(40),
@@ -81,15 +81,17 @@ Future<void> _playAudio(String? filePath) async {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            if (currentQuestionIndex == 2) ...[
+            if (currentQuestionIndex == 2 || currentQuestionIndex == 4) ...[
               ElevatedButton(
                 onPressed: () {
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialog(
-                        content: Text(
-                          'Star Wars lagið inniheldur hreina 5und. Gott getur verið að þekkja tónbil á lögum sem maður þekkir til að læra tónbil',
+                        content: Text( 
+                          currentQuestionIndex == 2
+                              ? 'Star Wars lagið inniheldur hreina 5und. Gott getur verið að þekkja tónbil á lögum sem maður þekkir til að læra tónbil'
+                              : 'Jaws lagið inniheldur litla 2und',
                           style: GoogleFonts.lato(
                             color: const Color.fromARGB(255, 0, 0, 0),
                             fontSize: 18,
@@ -102,7 +104,7 @@ Future<void> _playAudio(String? filePath) async {
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
-                            child: const Text('Fara til baka',),
+                            child: const Text('Fara til baka'),
                           ),
                         ],
                       );
