@@ -83,6 +83,14 @@ Future<void> _playAudio(String? filePath) async {
           children: [
             if (currentQuestionIndex == 2 || currentQuestionIndex == 4) ...[
               ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+      foregroundColor: Colors.white, 
+      backgroundColor: Color.fromARGB(255, 43, 171, 20), // Text color
+      padding: const EdgeInsets.symmetric(vertical: 15, horizontal:25),
+      minimumSize: const Size(0, 0),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),),),
+               
                 onPressed: () {
                   showDialog(
                     context: context,
