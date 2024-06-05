@@ -1,36 +1,40 @@
 # Lærum tónbil
 
-this game will help you to learn intervals.
+This game will help you learn musical intervals through interactive questions and audio samples.
 
-## How will we learn intervals in this game?
+## Table of Contents
 
- - play different questions and hear sound sample with intervals.
- - you´ll get four different options to choose from
- - in the end you´ll see wich answer were correct
- - you´ll learn how to hear the intervals the correct way! 
+- [Overview](#overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Assets](#assets)
+- [Key Code Snippets](#key-code-snippets)
+- [Contributing](#contributing)
+- [License](#license)
 
- ## How to Run the game
+## Overview
 
-  - Edge (web-javascript)
-  - Android StudioCode 
-  - you can also use many others
+Lærum tónbil is an educational game designed to help you recognize musical intervals. The game presents various questions where you listen to interval samples and choose the correct interval from multiple options.
 
-# assets
+## Features
 
-## Audio Files
+- Interactive questions with audio samples.
+- Four multiple-choice options for each question.
+- Immediate feedback on your answers.
+- Summary of correct answers at the end of the game.
+- Engaging interface to make learning intervals fun and effective.
 
-- 'assets/audio/test-sound.mp3'
-- 'assets/audio/test-sound2.mp3'
-- 'assets/audio/test-sound3.mp3'
-- 'assets/audio/test-sound4.mp3'
-- 'assets/audio/test-sound5.mp3'
-- 'assets/audio/test-sound6.mp3'
+## Installation
 
-## Image
-- image pngegg.png (note) **![Alternate text]** e.g ! [Image of a note]
-![Reference Image](/assets/images/pngegg.png)
+### Prerequisites
 
-## Function
+- [Flutter](https://flutter.dev/docs/get-started/install)
+- [Dart](https://dart.dev/get-dart)
+- IDE (e.g., Visual Studio Code, Android Studio)
 
+### Steps
 
-
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/halfdanarnas/flutter-projects/tree/main/adv_basics
