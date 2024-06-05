@@ -1,16 +1,11 @@
-# adv_basics
+# Lærum tónbil
 
-A new Flutter project.
+this game will help you to learn intervals.
 
-## Getting Started
+# How will we learn intervals in this game?
+ - play different questions and hear sound sample with intervals.
+ - you´ll get four four different options to choose from
+ - in the end you´ll see wich answer were correct
+ - you´ll learn how to hear the intervals the correct way! 
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+ 
