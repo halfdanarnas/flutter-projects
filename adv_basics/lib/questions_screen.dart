@@ -10,8 +10,8 @@ import 'package:audioplayers/audioplayers.dart';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:adv_basics/answer_button.dart'; // assuming this is your custom AnswerButton widget
-import 'package:adv_basics/data/questions.dart'; // assuming this is where you store your questions data
+import 'package:adv_basics/answer_button.dart'; 
+import 'package:adv_basics/data/questions.dart'; 
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({
