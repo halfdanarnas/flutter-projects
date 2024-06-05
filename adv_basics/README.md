@@ -15,9 +15,18 @@ this game will help you to learn intervals.
   - Android StudioCode 
   - you can also use many others
 
-### assets
+# assets
 
-- audio - test-sound 1-6
+## Audio Files
+
+- 'assets/audio/test-sound.mp3'
+- 'assets/audio/test-sound2.mp3'
+- 'assets/audio/test-sound3.mp3'
+- 'assets/audio/test-sound4.mp3'
+- 'assets/audio/test-sound5.mp3'
+- 'assets/audio/test-sound6.mp3'
+
+## Image
 - image pngegg.png (note) **![Alternate text]** e.g ! [Image of a note]
 ![Reference Image](/assets/images/pngegg.png)
 
