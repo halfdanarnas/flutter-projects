@@ -92,6 +92,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                       context: context,
                       builder: (BuildContext context) {
                         return AlertDialog(
+                          backgroundColor: const Color.fromARGB(255, 33, 150, 243),
                           content: Text(
                             currentQuestionIndex == 2
                                 ? 'Star Wars lagið inniheldur hreina 5und. Það er gott að heyra tónbil á lögum sem maður þekkir vel'
@@ -109,6 +110,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                                 Navigator.of(context).pop();
                               },
                               child: const Text('Fara til baka'),
+                              
                             ),
                           ],
                         );
