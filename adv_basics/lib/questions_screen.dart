@@ -8,34 +8,33 @@ import 'package:audioplayers/audioplayers.dart';
 
 
 
-
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:adv_basics/answer_button.dart'; // assuming this is your custom AnswerButton widget
+import 'package:adv_basics/data/questions.dart'; // assuming this is where you store your questions data
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({
-    super.key,
+    Key? key,
     required this.onSelectAnswer,
-  });
+  }) : super(key: key);
 
   final void Function(String answer) onSelectAnswer;
 
   @override
-  State<QuestionsScreen> createState() {
-    return _QuestionsScreenState();
-  }
+  State<QuestionsScreen> createState() => _QuestionsScreenState();
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
-  var currentQuestionIndex = 0;
   late AudioPlayer _audioPlayer;
-
+  var currentQuestionIndex = 0;
 
   @override
   void initState() {
     super.initState();
     _audioPlayer = AudioPlayer();
 
-    // Use a post frame callback to play audio after the first frame is rendered
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
       _playAudio(questions[currentQuestionIndex].audioFilePath);
     });
   }
@@ -52,28 +51,24 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
       currentQuestionIndex++;
     });
 
-    // Play audio for the next question if available
     if (currentQuestionIndex < questions.length) {
       _playAudio(questions[currentQuestionIndex].audioFilePath);
     }
   }
 
-Future<void> _playAudio(String? filePath) async {
-  if (filePath == null) return;
-  try {
-    await _audioPlayer.play(AssetSource('audio/$filePath')); 
-  } catch (e) {
-    print('Error playing audio: $e');
+  Future<void> _playAudio(String? filePath) async {
+    if (filePath == null) return;
+    try {
+      await _audioPlayer.play(AssetSource('audio/$filePath'));
+    } catch (e) {
+      print('Error playing audio: $e');
+    }
   }
-}
-
-
-
 
   @override
   Widget build(BuildContext context) {
     final currentQuestion = questions[currentQuestionIndex];
-  return SizedBox(
+    return SizedBox(
       width: double.infinity,
       child: Container(
         margin: const EdgeInsets.all(40),
@@ -82,44 +77,63 @@ Future<void> _playAudio(String? filePath) async {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             if (currentQuestionIndex == 2 || currentQuestionIndex == 4) ...[
-              ElevatedButton(
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  gradient: const LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: [Colors.black, Colors.blue],
+                  ),
+                ),
+                child: ElevatedButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          content: Text(
+                            currentQuestionIndex == 2
+                                ? 'Star Wars lagið inniheldur hreina 5und. Það er gott að heyra tónbil á lögum sem maður þekkir vel'
+                                : 'Jaws lagið inniheldur litla 2und',
+                            style: GoogleFonts.lato(
+                              color: const Color.fromARGB(255, 0, 0, 0),
+                              fontSize: 18,
+                              fontWeight: FontWeight.normal,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          actions: <Widget>[
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: const Text('Fara til baka'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
-      foregroundColor: Colors.white, 
-      backgroundColor: Color.fromARGB(255, 43, 171, 20), // Text color
-      padding: const EdgeInsets.symmetric(vertical: 15, horizontal:25),
-      minimumSize: const Size(0, 0),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),),),
-               
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        content: Text( 
-                          currentQuestionIndex == 2
-                              ? 'Star Wars lagið inniheldur hreina 5und. Það er gott að heyra tónbil á lögum sem maður þekkir vel'
-                              : 'Jaws lagið inniheldur litla 2und',
-                          style: GoogleFonts.lato(
-                            color: const Color.fromARGB(255, 0, 0, 0),
-                            fontSize: 18,
-                            fontWeight: FontWeight.normal,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                        actions: <Widget>[
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: const Text('Fara til baka'),
-                          ),
-                        ],
-                      );
-                    },
-                  );
-                },
-                child: const Text('Fróðleiksmoli'), // Change button text here
+                    foregroundColor: Colors.transparent, backgroundColor: Color.fromARGB(0, 7, 15, 117),
+                    shadowColor: Colors.transparent,
+                    minimumSize: const Size(0, 0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(
+                      vertical: 15,
+                      horizontal: 25,
+                    ),
+                    child: Text(
+                      'Fróðleiksmoli',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
               ),
               const SizedBox(height: 30),
             ],
