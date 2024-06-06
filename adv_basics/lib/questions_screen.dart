@@ -4,14 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:adv_basics/answer_button.dart';
 import 'package:adv_basics/data/questions.dart';
 import 'package:audioplayers/audioplayers.dart';
-// import 'package:audioplayers_web/audioplayers_web.dart';
-
-
-
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:adv_basics/answer_button.dart'; 
-import 'package:adv_basics/data/questions.dart'; 
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({
@@ -65,6 +57,49 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
     }
   }
 
+  void _showStarWarsOrJawsDialog(int currentQuestionIndex) {
+    String audioFileName;
+    String dialogText;
+
+    if (currentQuestionIndex == 2) {
+      audioFileName = 'StarWars.mp3'; // Set Star Wars audio file name
+      dialogText = 'Star Wars lagið inniheldur hreina 5und. Það er gott að heyra tónbil á lögum sem maður þekkir vel';
+    } else if (currentQuestionIndex == 4) {
+      audioFileName = 'Jaws.mp3'; // Set Jaws audio file name
+      dialogText = 'Jaws lagið inniheldur litla 2und';
+    } else {
+      return; // Add conditions for other questions if needed
+    }
+
+    _playAudio(audioFileName); // Play corresponding audio
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: const Color.fromARGB(255, 33, 150, 243),
+          content: Text(
+            dialogText,
+            style: GoogleFonts.lato(
+              color: const Color.fromARGB(255, 0, 0, 0),
+              fontSize: 18,
+              fontWeight: FontWeight.normal,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Fara til baka'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final currentQuestion = questions[currentQuestionIndex];
@@ -88,34 +123,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                 ),
                 child: ElevatedButton(
                   onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          backgroundColor: const Color.fromARGB(255, 33, 150, 243),
-                          content: Text(
-                            currentQuestionIndex == 2
-                                ? 'Star Wars lagið inniheldur hreina 5und. Það er gott að heyra tónbil á lögum sem maður þekkir vel'
-                                : 'Jaws lagið inniheldur litla 2und',
-                            style: GoogleFonts.lato(
-                              color: const Color.fromARGB(255, 0, 0, 0),
-                              fontSize: 18,
-                              fontWeight: FontWeight.normal,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                          actions: <Widget>[
-                            TextButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              child: const Text('Fara til baka'),
-                              
-                            ),
-                          ],
-                        );
-                      },
-                    );
+                    _showStarWarsOrJawsDialog(currentQuestionIndex);
                   },
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.transparent, backgroundColor: Color.fromARGB(0, 7, 15, 117),

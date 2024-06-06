@@ -68,6 +68,7 @@ flutter:
   
     - assets/images/quiz-logo.png
     - assets/images/pngegg.png
+    - assets/images/Star_Wars_Logo.svg.png
     - assets/audio/
     # - assets/audio/test-sound.mp3
   #   - images/a_dot_burr.jpeg
