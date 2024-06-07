@@ -89,9 +89,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                 height: MediaQuery.of(context).size.height,
                 fit: BoxFit.cover,
               ),
-              Positioned(
-                left: 16,
-                bottom: 16,
+              Center(
                 child: Container(
                   padding: EdgeInsets.all(8),
                   color: Colors.black.withOpacity(0.8),
@@ -102,6 +100,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                       fontSize: 22,
                       fontWeight: FontWeight.normal,
                     ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),
@@ -146,7 +145,8 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                     _showStarWarsOrJawsDialog(currentQuestionIndex);
                   },
                   style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.transparent, backgroundColor: Color.fromARGB(0, 7, 15, 117),
+                    foregroundColor: Colors.transparent,
+                    backgroundColor: Color.fromARGB(0, 7, 15, 117),
                     shadowColor: Colors.transparent,
                     minimumSize: const Size(0, 0),
                     shape: RoundedRectangleBorder(
@@ -160,7 +160,11 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                     ),
                     child: Text(
                       'Fróðleiksmoli',
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18, // Change font size here
+                        fontWeight: FontWeight.bold, // Add font weight here
+                      ),
                     ),
                   ),
                 ),
