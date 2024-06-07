@@ -60,13 +60,16 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   void _showStarWarsOrJawsDialog(int currentQuestionIndex) {
     String audioFileName;
     String dialogText;
+    String imagePath;
 
     if (currentQuestionIndex == 2) {
       audioFileName = 'StarWars.mp3'; // Set Star Wars audio file name
       dialogText = 'Star Wars lagið inniheldur hreina 5und. Það er gott að heyra tónbil á lögum sem maður þekkir vel';
+      imagePath = 'assets/images/Star_Wars_Logo.svg.png'; // Set Star Wars image path
     } else if (currentQuestionIndex == 4) {
-      audioFileName = 'Jaws.mp3'; // Set Jaws audio file name
+      audioFileName = 'jaws_audio.mp3'; // Set Jaws audio file name
       dialogText = 'Jaws lagið inniheldur litla 2und';
+      imagePath = 'assets/images/jaws.png'; // Set Jaws image path
     } else {
       return; // Add conditions for other questions if needed
     }
@@ -77,15 +80,32 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          backgroundColor: const Color.fromARGB(255, 33, 150, 243),
-          content: Text(
-            dialogText,
-            style: GoogleFonts.lato(
-              color: const Color.fromARGB(255, 0, 0, 0),
-              fontSize: 18,
-              fontWeight: FontWeight.normal,
-            ),
-            textAlign: TextAlign.center,
+          backgroundColor: Colors.transparent,
+          content: Stack(
+            children: [
+              Image.asset(
+                imagePath,
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                fit: BoxFit.cover,
+              ),
+              Positioned(
+                left: 16,
+                bottom: 16,
+                child: Container(
+                  padding: EdgeInsets.all(8),
+                  color: Colors.black.withOpacity(0.5),
+                  child: Text(
+                    dialogText,
+                    style: GoogleFonts.lato(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
           actions: <Widget>[
             TextButton(
