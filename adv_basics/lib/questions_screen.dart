@@ -67,7 +67,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
       dialogText = 'Star Wars lagið inniheldur hreina 5und. Það er gott að heyra tónbil á lögum sem maður þekkir vel';
       imagePath = 'assets/images/Star_Wars_Logo.svg.png'; // Set Star Wars image path
     } else if (currentQuestionIndex == 4) {
-      audioFileName = 'jaws_audio.mp3'; // Set Jaws audio file name
+      audioFileName = 'Jaws.mp3'; // Set Jaws audio file name
       dialogText = 'Jaws lagið inniheldur litla 2und';
       imagePath = 'assets/images/jaws.png'; // Set Jaws image path
     } else {
