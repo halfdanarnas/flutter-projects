@@ -94,12 +94,12 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                 bottom: 16,
                 child: Container(
                   padding: EdgeInsets.all(8),
-                  color: Colors.black.withOpacity(0.5),
+                  color: Colors.black.withOpacity(0.8),
                   child: Text(
                     dialogText,
-                    style: GoogleFonts.lato(
-                      color: Colors.white,
-                      fontSize: 18,
+                    style: GoogleFonts.abrilFatface(
+                      color: Color.fromARGB(255, 255, 255, 255),
+                      fontSize: 22,
                       fontWeight: FontWeight.normal,
                     ),
                   ),
