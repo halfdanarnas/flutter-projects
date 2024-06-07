@@ -40,6 +40,8 @@ class ResultsScreen extends StatelessWidget {
         )
         .length;
 
+    final bool allCorrect = numCorrectQuestions == numTotalQuestions;
+
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -47,17 +49,28 @@ class ResultsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Þú svaraðir $numCorrectQuestions af $numTotalQuestions spurningum rétt!',
-              style: GoogleFonts.lato(
-                color: const Color.fromARGB(255, 255, 255, 255),
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+            if (allCorrect)
+              Text(
+                'Til hamingju þú svaraðir öllum spurningum rétt!',
+                style: GoogleFonts.abrilFatface(
+                  color: Color.fromARGB(255, 31, 127, 31),
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              )
+            else
+              Text(
+                'Þú svaraðir $numCorrectQuestions af $numTotalQuestions spurningum rétt!',
+                style: GoogleFonts.lato(
+                  color: const Color.fromARGB(255, 255, 255, 255),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
-            ),
             const SizedBox(
-              height: 0,
+              height: 30,
             ),
             QuestionsSummary(summaryData),
             const SizedBox(
@@ -70,7 +83,7 @@ class ResultsScreen extends StatelessWidget {
               ),
               icon: const Icon(Icons.refresh),
               label: const Text('Gerðu aftur!'),
-            )
+            ),
           ],
         ),
       ),
