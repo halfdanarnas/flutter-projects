@@ -70,7 +70,7 @@ class ResultsScreen extends StatelessWidget {
                           Text(
                             'Til hamingju þú svaraðir öllum spurningum rétt!',
                             style: GoogleFonts.abrilFatface(
-                              color: const Color.fromARGB(255, 31, 127, 31),
+                              color: Color.fromARGB(255, 73, 129, 73),
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
                             ),
