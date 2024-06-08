@@ -70,7 +70,7 @@ class ResultsScreen extends StatelessWidget {
                           Text(
                             'Til hamingju þú svaraðir öllum spurningum rétt!',
                             style: GoogleFonts.abrilFatface(
-                              color: Color.fromARGB(255, 73, 129, 73),
+                              color: Color.fromARGB(255, 119, 206, 119),
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
                             ),
@@ -79,7 +79,7 @@ class ResultsScreen extends StatelessWidget {
                           const SizedBox(height: 20),
                           Image.asset(
                             'assets/images/ronburgundy.png', // Replace with your image asset path
-                            height: 150, // Adjust the height of the image
+                            height: 200, // Adjust the height of the image
                           ),
                         ],
                       )
